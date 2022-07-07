@@ -44,7 +44,7 @@ Like any Cosmos-SDK chain, the hardware requirements are pretty modest.
 ### Option 1 (automatic)
 You can setup your kujira fullnode in few minutes by using automated script below. It will prompt you to input your validator node name!
 ```
-wget -O kujira.sh https://raw.githubusercontent.com/kj89/testnet_manuals/main/kujira/kujira.sh && chmod +x kujira.sh && ./kujira.sh
+wget -O kujira.sh https://raw.githubusercontent.com/Nodeist/testnet_manuals/main/kujira/kujira.sh && chmod +x kujira.sh && ./kujira.sh
 ```
 
 ### Option 2 (manual)
