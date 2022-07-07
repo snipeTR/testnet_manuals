@@ -44,7 +44,7 @@ Like any Cosmos-SDK chain, the hardware requirements are pretty modest.
 ### Option 1 (automatic)
 You can setup your sei fullnode in few minutes by using automated script below. It will prompt you to input your validator node name!
 ```
-wget -O sei.sh https://raw.githubusercontent.com/kj89/testnet_manuals/main/sei/sei.sh && chmod +x sei.sh && ./sei.sh
+wget -O sei.sh https://raw.githubusercontent.com/Nodeist/testnet_manuals/main/sei/sei.sh && chmod +x sei.sh && ./sei.sh
 ```
 
 ### Option 2 (manual)
