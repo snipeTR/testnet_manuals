@@ -22,7 +22,7 @@ SEI_PORT=12
 if [ ! $WALLET ]; then
 	echo "export WALLET=wallet" >> $HOME/.bash_profile
 fi
-echo "export SEI_CHAIN_ID=atlantic-1" >> $HOME/.bash_profile
+echo "export SEI_CHAIN_ID=sei-devnet-1" >> $HOME/.bash_profile
 echo "export SEI_PORT=${SEI_PORT}" >> $HOME/.bash_profile
 source $HOME/.bash_profile
 
