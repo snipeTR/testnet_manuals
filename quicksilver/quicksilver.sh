@@ -57,7 +57,7 @@ echo -e "\e[1m\e[32m3. Downloading and building binaries... \e[0m" && sleep 1
 # download binary
 cd $HOME
 rm quicksilver -rf
-git clone https://github.com/ingenuity-build/quicksilver.git --branch v0.4.0
+git clone https://github.com/ingenuity-build/quicksilver.git --branch v0.4.1
 cd quicksilver
 make build
 sudo chmod +x ./build/quicksilverd && sudo mv ./build/quicksilverd /usr/local/bin/quicksilverd
@@ -98,8 +98,17 @@ sed -i -e "s/^minimum-gas-prices *=.*/minimum-gas-prices = \"0uqck\"/" $HOME/.qu
 # enable prometheus
 sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.quicksilverd/config/config.toml
 
+
+
 # reset
 quicksilverd tendermint unsafe-reset-all --home $HOME/.quicksilverd
+
+cd $HOME/.quicksilverd
+rm -rf data
+
+SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/quicksilver-testnet/ | egrep -o ">killerqueen-1.*\.tar.lz4" | tr -d ">")
+curl https://snapshots1-testnet.nodejumper.io/quicksilver-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf -
+
 
 echo -e "\e[1m\e[32m4. Starting service... \e[0m" && sleep 1
 # create service
