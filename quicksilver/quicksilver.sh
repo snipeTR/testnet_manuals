@@ -103,11 +103,13 @@ sed -i -e "s/prometheus = false/prometheus = true/" $HOME/.quicksilverd/config/c
 # reset
 quicksilverd tendermint unsafe-reset-all --home $HOME/.quicksilverd
 
-cd $HOME/.quicksilverd
-rm -rf data
+#snap
+cd $HOME/.quicksilverd; rm -rf data \
+&& wget http://185.187.169.194/snap-170000.tar
 
-SNAP_NAME=$(curl -s https://snapshots1-testnet.nodejumper.io/quicksilver-testnet/ | egrep -o ">killerqueen-1.*\.tar.lz4" | tr -d ">")
-curl https://snapshots1-testnet.nodejumper.io/quicksilver-testnet/${SNAP_NAME} | lz4 -dc - | tar -xf -
+tar xvf snap-170000.tar
+rm $HOME/.quicksilverd/snap-170000.tar
+
 
 
 echo -e "\e[1m\e[32m4. Starting service... \e[0m" && sleep 1
