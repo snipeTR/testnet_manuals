@@ -12,7 +12,8 @@ echo -e "\e[0m"
 echo "=================================================="
 
 sleep 2
-
+# delete old line for dublicate.
+sed -i.org '/SEI_PORT\|SEI_CHAIN_ID\|WALLET\|NODENAME/d' "$HOME/.bash_profile"
 # set vars
 if [ ! $NODENAME ]; then
 	read -p "Enter node name: " NODENAME
